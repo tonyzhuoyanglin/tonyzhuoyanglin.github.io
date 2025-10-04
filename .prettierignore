@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Media files
+*.mp4
+*.jpg
+*.png
+*.gif
+*.ico
+
+# Font files
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# Other
+*.wasm
+
+
+
