@@ -140,6 +140,49 @@
             line-height: 1.5;
             margin: 0;
         }
+
+        /* Responsive video containers */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .video-item {
+            text-align: center;
+        }
+
+        .video-item video,
+        .video-item img {
+            height: 256px;
+            max-width: 100%;
+        }
+
+        /* Mobile responsive design */
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .video-item video,
+            .video-item img {
+                height: 200px;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .video-item video,
+            .video-item img {
+                height: 180px;
+                max-width: 280px;
+            }
+        }
     </style>
 </head>
 
@@ -209,16 +252,16 @@
                         the same length. We then extracted individual frames from both sets of videos, obtaining a time series of images for
                         each video.
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
-                        <div style="text-align: center;">
-                            <video style="height: 256px;" controls>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <video controls>
                                 <source src="videos/how_it_works/forehand_pro.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             <div style="margin-top: 5px;">Professional Player</div>
                         </div>
-                        <div style="text-align: center;">
-                            <video style="height: 256px;" controls>
+                        <div class="video-item">
+                            <video controls>
                                 <source src="videos/how_it_works/forehand_user.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -234,16 +277,16 @@
                         the 3D pose parameters of the body (along with other shape parameters, which were not used here). We can then rig the SMPL
                         body model [Loper et al., 2015] with the pose parameters to obtain a time series of 3D meshes, which we render below.
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
-                        <div style="text-align: center;">
-                            <video style="height: 256px;" controls>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <video controls>
                                 <source src="videos/how_it_works/pro_forehand_overlay_h264.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             <div style="margin-top: 5px;">3D Reconstruction of the Professional Player</div>
                         </div>
-                        <div style="text-align: center;">
-                            <video style="height: 256px;" controls>
+                        <div class="video-item">
+                            <video controls>
                                 <source src="videos/how_it_works/user_forehand_overlay_h264.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -257,13 +300,13 @@
                         Since the body pose was estimated in the 3D space, we can render the 3D mesh from any viewpoint we want, different from the original
                         camera viewpoints as shown above. Below, we render the 3D human body from the top view to better understand the stroke in the 3D space.
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
-                        <div style="text-align: center;">
-                            <img style="height: 256px;" src="videos/how_it_works/pro_topdown.png" alt="Top-Down Rendering of the Professional Player">
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="videos/how_it_works/pro_topdown.png" alt="Top-Down Rendering of the Professional Player">
                             <div style="margin-top: 5px;">Top-Down Rendering of the Professional Player</div>
                         </div>
-                        <div style="text-align: center;">
-                            <img style="height: 256px;" src="videos/how_it_works/user_topdown.png" alt="Top-Down Rendering of Me Performing the Same Stroke">
+                        <div class="video-item">
+                            <img src="videos/how_it_works/user_topdown.png" alt="Top-Down Rendering of Me Performing the Same Stroke">
                             <div style="margin-top: 5px;">Top-Down Rendering of Me</div>
                         </div>
                     </div>
@@ -282,9 +325,9 @@
                         indicate bigger absolute angle differences. We focus on the first "comp1" column, which is the flexion of the angles
                         (for completeness, we also plot the abduction in the second column, even though we are not discussing it here).
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
-                        <div style="text-align: center;">
-                            <img style="height: 256px;" src="videos/how_it_works/fh_heatmap.png" alt="Joint Difference Heatmap">
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="videos/how_it_works/fh_heatmap.png" alt="Joint Difference Heatmap">
                             <div style="margin-top: 5px;">Heatmap of Joint Angle Differences</div>
                         </div>
                     </div>
@@ -295,13 +338,13 @@
                         both players, shown below. From the plots, we can conclude that the professional player tends to have larger knee rotations for this stroke
                         -- consistent with both knees.
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
-                        <div style="text-align: center;">
-                            <img style="height: 256px;" src="videos/how_it_works/fh_Left_Knee.png" alt="Left Knee Angle Over Time">
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="videos/how_it_works/fh_Left_Knee.png" alt="Left Knee Angle Over Time">
                             <div style="margin-top: 5px;">Left Knee Angle Over Time</div>
                         </div>
-                        <div style="text-align: center;">
-                            <img style="height: 256px;" src="videos/how_it_works/fh_Right_Knee.png" alt="Right Knee Angle Over Time">
+                        <div class="video-item">
+                            <img src="videos/how_it_works/fh_Right_Knee.png" alt="Right Knee Angle Over Time">
                             <div style="margin-top: 5px;">Right Knee Angle Over Time</div>
                         </div>
                     </div>
@@ -311,9 +354,9 @@
                         What about the smaller differences? We plot the joint angles of the left elbow. Indeed, both the professional player and I 
                         have similar elbow angles, indicating that I should work on my knee angles instead.
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
-                        <div style="text-align: center;">
-                            <img style="height: 256px;" src="videos/how_it_works/fh_Left_Elbow.png" alt="Left Elbow Angle Over Time">
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="videos/how_it_works/fh_Left_Elbow.png" alt="Left Elbow Angle Over Time">
                             <div style="margin-top: 5px;">Left Elbow Angle Over Time</div>
                         </div>
                     </div>
